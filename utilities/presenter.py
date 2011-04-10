@@ -1,9 +1,54 @@
 #!/usr/bin/python
 
+from twisted.internet import gtk2reactor
+gtk2reactor.install()
+
 import gtk
 import poppler
 
+from twisted.web.server import Site
+from twisted.web.resource import Resource, NoResource
+from twisted.internet import reactor
+
 PRESENTATION_FILE = "file:///home/nafai/Downloads/presentation.pdf"
+
+
+def generateCommandsPage():
+    global commands
+
+    commandsHTML = "<ul>" + \
+    "".join( \
+        ["<li><a href=\"/%s\">%s</a></li><br><br>" % (command, command) \
+         for command in commands.keys()]) + \
+    "</ul>"
+
+    return "<html><body>%s</body></html>" % commandsHTML
+
+class PresentationControlCommand(Resource):
+
+    def __init__(self, callable):
+        Resource.__init__(self)
+        self.callable = callable
+
+    def render_GET(self, request):
+        self.callable()
+        return generateCommandsPage()
+
+class LinksCommand(Resource):
+    def render_GET(self, request):
+        return generateCommandsPage()
+
+class PresentationControlDispatcher(Resource):
+
+    def getChild(self, path, request):
+        if path is '':
+            return LinksCommand()
+        elif path in commands:
+            return PresentationControlCommand(commands[path])
+        else:
+            return NoResource()
+
+commands = {}
 
 class Presenter(object):
 
@@ -28,27 +73,42 @@ class Presenter(object):
 
         self.window.show_all()
 
-    def on_key_pressed(self, widget, event):
-        if event.keyval == gtk.gdk.keyval_from_name("space"):
-            current_page_num = self.current_page.get_index()
-            next_page_num = current_page_num + 1
+    def display_previous(self):
+        current_page_num = self.current_page.get_index()
+        next_page_num = current_page_num - 1
 
-            if next_page_num < self.n_pages:
-                self.current_page = self.presentation.get_page(next_page_num)
-                self.dwg.queue_draw()
+        if next_page_num >= 0:
+            self.current_page = self.presentation.get_page(next_page_num)
+            self.dwg.queue_draw()
+
+    def display_next(self):
+        current_page_num = self.current_page.get_index()
+        next_page_num = current_page_num + 1
+
+        if next_page_num < self.n_pages:
+            self.current_page = self.presentation.get_page(next_page_num)
+            self.dwg.queue_draw()
+
+    def on_key_pressed(self, widget, event):
+        if event.keyval in (gtk.gdk.keyval_from_name(key) for key in
+                            ("space", "Return", "Right", "Page_Down")):
+            self.display_next()
+        elif event.keyval in (gtk.gdk.keyval_from_name(key) for key in
+                              ("Left", "Page_Up")):
+            self.display_previous()
+        elif event.keyval == gtk.gdk.keyval_from_name("Escape"):
+            self.quit()
 
     def change_scale(self):
-        self.width, self.height  = self.window.get_size()
+        self.width, self.height = self.window.get_size()
         self.doc_width, self.doc_height = self.current_page.get_size()
         self.x_scale = float(self.width) / self.doc_width
-        self.y_scale = float(self.height)/ self.doc_height
-
+        self.y_scale = float(self.height) / self.doc_height
 
     def on_state_changed(self, widget, event):
         self.change_scale()
         self.dwg.set_size_request(self.width, self.height)
         self.dwg.queue_draw()
-
 
     def on_expose(self, widget, event):
         self.change_scale()
@@ -61,9 +121,20 @@ class Presenter(object):
 
         self.current_page.render(cr)
 
-    def main(self):
-        gtk.main()
+    def quit(self):
+        reactor.stop()
 
+    def main(self):
+        global commands
+
+        commands = {"next": self.display_next,
+                    "previous": self.display_previous,
+                    "quit": self.quit}
+
+        root = PresentationControlDispatcher()
+        factory = Site(root)
+        reactor.listenTCP(8888, factory)
+        reactor.run()
 
 
 if __name__ == "__main__":
