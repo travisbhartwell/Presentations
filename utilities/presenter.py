@@ -24,24 +24,28 @@ def generateCommandsPage():
 
     return "<html><body>%s</body></html>" % commandsHTML
 
+
 class PresentationControlCommand(Resource):
 
-    def __init__(self, callable):
+    def __init__(self, fn):
         Resource.__init__(self)
-        self.callable = callable
+        self.fn = fn
 
-    def render_GET(self, request):
-        self.callable()
+    def render_GET(self, _):
+        self.fn()
         return generateCommandsPage()
+
 
 class LinksCommand(Resource):
-    def render_GET(self, request):
+
+    def render_GET(self, _):
         return generateCommandsPage()
+
 
 class PresentationControlDispatcher(Resource):
 
-    def getChild(self, path, request):
-        if path is '':
+    def getChild(self, path, _):
+        if path == '':
             return LinksCommand()
         elif path in commands:
             return PresentationControlCommand(commands[path])
@@ -49,6 +53,7 @@ class PresentationControlDispatcher(Resource):
             return NoResource()
 
 commands = {}
+
 
 class Presenter(object):
 
@@ -89,7 +94,7 @@ class Presenter(object):
             self.current_page = self.presentation.get_page(next_page_num)
             self.dwg.queue_draw()
 
-    def on_key_pressed(self, widget, event):
+    def on_key_pressed(self, _, event):
         if event.keyval in (gtk.gdk.keyval_from_name(key) for key in
                             ("space", "Return", "Right", "Page_Down")):
             self.display_next()
@@ -105,12 +110,12 @@ class Presenter(object):
         self.x_scale = float(self.width) / self.doc_width
         self.y_scale = float(self.height) / self.doc_height
 
-    def on_state_changed(self, widget, event):
+    def on_state_changed(self, *_):
         self.change_scale()
         self.dwg.set_size_request(self.width, self.height)
         self.dwg.queue_draw()
 
-    def on_expose(self, widget, event):
+    def on_expose(self, widget, _):
         self.change_scale()
         cr = widget.window.cairo_create()
         cr.set_source_rgb(1, 1, 1)
