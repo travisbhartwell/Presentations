@@ -3,6 +3,8 @@
 from twisted.internet import gtk2reactor
 gtk2reactor.install()
 
+from functools import partial
+
 import gtk
 import poppler
 
@@ -13,9 +15,7 @@ from twisted.internet import reactor
 PRESENTATION_FILE = "file:///home/nafai/Downloads/presentation.pdf"
 
 
-def generateCommandsPage():
-    global commands
-
+def generate_commands_page(commands):
     commandsHTML = "<ul>" + \
     "".join( \
         ["<li><a href=\"/%s\">%s</a></li><br><br>" % (command, command) \
@@ -27,32 +27,43 @@ def generateCommandsPage():
 
 class PresentationControlCommand(Resource):
 
-    def __init__(self, fn):
+    def __init__(self, fn, commands_page_generator):
         Resource.__init__(self)
         self.fn = fn
+        self.commands_page_generator = commands_page_generator
 
     def render_GET(self, _):
         self.fn()
-        return generateCommandsPage()
+        return self.commands_page_generator()
 
 
 class LinksCommand(Resource):
 
+    def __init__(self, commands_page_generator):
+        Resource.__init__(self)
+        self.commands_page_generator = commands_page_generator
+
     def render_GET(self, _):
-        return generateCommandsPage()
+        return self.commands_page_generator()
 
 
 class PresentationControlDispatcher(Resource):
 
+    def __init__(self, commands):
+        Resource.__init__(self)
+
+        self.commands = commands
+        self.commands_page_generator = partial(generate_commands_page,
+                                               self.commands)
+
     def getChild(self, path, _):
         if path == '':
-            return LinksCommand()
-        elif path in commands:
-            return PresentationControlCommand(commands[path])
+            return LinksCommand(self.commands_page_generator)
+        elif path in self.commands:
+            return PresentationControlCommand(self.commands[path],
+                                              self.commands_page_generator)
         else:
             return NoResource()
-
-commands = {}
 
 
 class Presenter(object):
@@ -63,6 +74,13 @@ class Presenter(object):
         self.n_pages = self.presentation.get_n_pages()
         self.current_page = self.presentation.get_page(0)
 
+        self.setup_window()
+
+        self.commands = {"next": self.display_next,
+                         "previous": self.display_previous,
+                         "quit": self.quit}
+
+    def setup_window(self):
         self.window = gtk.Window(gtk.WINDOW_TOPLEVEL)
         self.window.fullscreen()
         self.window.set_title("Presenter")
@@ -95,13 +113,13 @@ class Presenter(object):
             self.dwg.queue_draw()
 
     def on_key_pressed(self, _, event):
-        if event.keyval in (gtk.gdk.keyval_from_name(key) for key in
-                            ("space", "Return", "Right", "Page_Down")):
+        keyname = gtk.gdk.keyval_name(event.keyval)
+
+        if keyname in ("space", "Return", "Right", "Page_Down"):
             self.display_next()
-        elif event.keyval in (gtk.gdk.keyval_from_name(key) for key in
-                              ("Left", "Page_Up")):
+        elif keyname in ("Left", "Page_Up"):
             self.display_previous()
-        elif event.keyval == gtk.gdk.keyval_from_name("Escape"):
+        elif keyname == "Escape":
             self.quit()
 
     def change_scale(self):
@@ -130,13 +148,7 @@ class Presenter(object):
         reactor.stop()
 
     def main(self):
-        global commands
-
-        commands = {"next": self.display_next,
-                    "previous": self.display_previous,
-                    "quit": self.quit}
-
-        root = PresentationControlDispatcher()
+        root = PresentationControlDispatcher(self.commands)
         factory = Site(root)
         reactor.listenTCP(8888, factory)
         reactor.run()
