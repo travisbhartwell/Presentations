@@ -1,0 +1,13 @@
+*.pyc
+*~
+*.ropeproject/
+*.aux
+*.out
+*.log
+*.nav
+*.pdf
+*.tex
+*.snm
+*.toc
+*.vrb
+*.dvi
