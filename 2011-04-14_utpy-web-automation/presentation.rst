@@ -8,3 +8,9 @@ Web Automation with Python
 
 Web Automation
 ==============
+
+Here's a simple script for getting my latest Twitter status:
+
+.. code-block:: python
+
+	.. include:: examples/twitter_get_status.py
