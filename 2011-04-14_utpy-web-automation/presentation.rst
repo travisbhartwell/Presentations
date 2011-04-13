@@ -9,7 +9,7 @@ Web Automation with Python
 Web Automation
 ==============
 
-To automate things on the web, this is the preferred order:
+To automate things on the web, this is my preferred order:
 
 - Web service APIs using urllib, with higher-level abstractions on top
 
@@ -31,5 +31,17 @@ Here's a simple script for getting my latest Twitter status:
 
 .. code-block:: python
 
-.. include:: examples/twitter_get_status.py
+  .. include:: examples/twitter_get_status.py
+
+
+Example: Higher level wrapper around urllib
+===========================================
+
+Sometimes you can make a convenient wrapper around urllib calls:
+
+- twipiclib
+
+- facebook
+
+- gdata
 
