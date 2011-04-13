@@ -1,6 +1,8 @@
 import os
 import sys
 
+# TODO: Probably should make sure I generate all of the
+#       dependency filenames here
 SLIDES = "presentation"
 pdf_file, rst_file, tex_file = \
     ["%s.%s" % (SLIDES, ext) for ext in ["pdf", "rst", "tex"]]
@@ -8,6 +10,9 @@ pdf_file, rst_file, tex_file = \
 # TODO: Split out custom builders and commands into custom file
 # TODO: Abstract this out, adding parameters for theme and color theme,
 #       or at least extra command line options
+# TODO: Make sure this builder handles multiple sources correctly.
+#       For example, any extra source files that get included in
+#       and syntax highlighted in producing the slides
 RST2BEAMER_COMMAND = "rst2beamer --codeblocks-use-pygments"
 rst2beamer_builder = \
     Builder(action="%s $SOURCE $TARGET" % RST2BEAMER_COMMAND,
@@ -15,10 +20,15 @@ rst2beamer_builder = \
             src_suffix=".rst")
 
 env = Environment(ENV=os.environ)
+
+# QUESTION: If I move my builders out of this file, can I have them
+#           automatically added?
 env.Append(BUILDERS = {"rst2beamer": rst2beamer_builder})
 
 beamer_output = env.rst2beamer(SLIDES)
 pdf_output = env.PDF(target=pdf_file, source=tex_file)
+
+# TODO: Make a distclean or somesuch target that also removes the pdf
 env.NoClean(pdf_output)
 Default(pdf_output)
 
