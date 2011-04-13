@@ -1,0 +1,18 @@
+import os
+
+SLIDES = "presentation"
+pdf_file, rst_file, tex_file = \
+    ["%s.%s" % (SLIDES, ext) for ext in ["pdf", "rst", "tex"]]
+
+RST2BEAMER_COMMAND = "rst2beamer --codeblocks-use-pygments"
+rst2beamer_builder = \
+    Builder(action="%s $SOURCE $TARGET" % RST2BEAMER_COMMAND,
+            suffix=".tex",
+            src_suffix=".rst")
+
+env = Environment(ENV=os.environ)
+env["BUILDERS"]["rst2beamer"] = rst2beamer_builder
+
+beamer_output = env.rst2beamer(SLIDES)
+pdf_output = env.PDF(target=pdf_file, source=tex_file)
+Depends(pdf_output, [tex_file, rst_file])

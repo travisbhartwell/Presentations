@@ -11,3 +11,5 @@
 *.toc
 *.vrb
 *.dvi
+*.fls
+*.sconsign.dblite
