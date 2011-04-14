@@ -77,11 +77,47 @@ Example: Higher level wrapper around urllib
 Sometimes you can make a convenient wrapper around urllib calls.
 Examples:
 
+- twitter
+
 - twipiclib
 
 - facebook
 
 - gdata
+
+Example: Uploading a picture to twitpic and posting
+===================================================
+
+.. code-block:: python
+
+	from twitpic import twitpic2
+	import twitter
+
+	twitpic = twitpic2.TwitPicOAuthClient(
+	    consumer_key = consumer_key,
+	    consumer_secret = consumer_secret,
+	    access_token = access_token,
+	    service_key = twitpic_api_key,
+	)
+
+	params = {"media": "presentation-1.png",
+	          "message": "Slide 2"}
+	response = twitpic.create('upload', params)
+
+
+Example: Uploading a picture to twitpic and posting (cont).
+===========================================================
+
+.. code-block:: python
+
+	api = twitter.Api(consumer_key=consumer_key,
+                          consumer_secret=consumer_secret,
+                          access_token_key=token,
+                          access_token_secret=token_secret)
+
+	message = "%s: %s" % (response["text"]
+	status = api.PostUpdate(message,
+				response["url"]))
 
 
 Simple Web Scraping with urllib and BeautifulSoup
