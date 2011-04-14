@@ -3,7 +3,9 @@
 import json
 import urllib
 
-URL = "http://twitter.com/statuses/user_timeline/travisbhartwell.json?count=1"
+URL_BASE = "http://twitter.com/statuses/"
+STATUS_QUERY = "user_timeline/%s.json?count=1"
+URL = URL_BASE + STATUS_QUERY % "travisbhartwell"
 
 status_json = urllib.urlopen(URL).read()
 status = json.loads(status_json)
