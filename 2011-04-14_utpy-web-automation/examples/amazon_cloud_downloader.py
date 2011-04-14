@@ -3,11 +3,11 @@ import time
 import os
 
 from config import amazon_password, amazon_username
+
 CLOUD_PLAYER_URL = "http://www.amazon.com/gp/dmusic/mp3/player/ref=sa_menu_mp3_acp1"
 PLAYLIST_LINK = "https://www.amazon.com/gp/dmusic/mp3/player?ie=UTF8&ref_=sa_menu_mp3_acp1&#latestPurchases"
 
 driver = webdriver.Chrome()
-#driver = webdriver.Firefox()
 driver.get(CLOUD_PLAYER_URL)
 driver.find_element_by_name("email").send_keys(amazon_username)
 driver.find_element_by_name("password").send_keys(amazon_password)
@@ -33,6 +33,8 @@ for button in buttons:
         button.click()
         break
 
+# Need to figure out something better to make sure this has downloaded
+time.sleep(10)
 driver.quit()
 
 # Grab latest .amz file from downloads directory
