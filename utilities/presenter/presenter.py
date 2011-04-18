@@ -174,18 +174,21 @@ class Presenter(object):
 
             # Only post if we haven't posted before
             if next_page_num not in self.posted_slides:
-                try:
-                    to_post_index = self.slides_to_post.index(next_page_num)
-                    print "Scheduling posting for slide %d" % next_page_num
-                    self.post_slide_deferred = defer.Deferred()
-                    self.post_slide_deferred.addCallback(self.post_slide)
-                    self.post_slide_deferred.addErrback(self.cancel_posting)
+                self.schedule_post_slide(next_page_num)
 
-                    reactor.callLater(5,
-                                      self.post_slide_deferred.callback,
-                                      to_post_index)
-                except ValueError:
-                    print "Not posting slide %d" % next_page_num
+    def schedule_post_slide(self, next_page_num):
+        try:
+            to_post_index = self.slides_to_post.index(next_page_num)
+            print "Scheduling posting for slide %d" % next_page_num
+            self.post_slide_deferred = defer.Deferred()
+            self.post_slide_deferred.addCallback(self.post_slide)
+            self.post_slide_deferred.addErrback(self.cancel_posting)
+
+            reactor.callLater(5,
+                              self.post_slide_deferred.callback,
+                              to_post_index)
+        except ValueError:
+            print "Not posting slide %d" % next_page_num
 
     def cancel_posting(self, failure):
         if not failure.check(defer.CancelledError):

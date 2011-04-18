@@ -69,7 +69,7 @@ Here's a simple script for getting my latest Twitter status:
    print status[0][u'text']
 
 
-Example: Higher level wrapper around urllib
+Higher level wrappers around urllib
 ===========================================
 
 .. TODO: Include URLS and other examples
