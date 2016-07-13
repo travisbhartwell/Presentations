@@ -19,7 +19,19 @@ polished set-up focused on ergonomics, mnemonics and consistency.
             - vim style
             - Emacs style
             - hybrid
-          - Important functionality exposed via "Leader" keys
+          - Important functionality exposed via Leader keys
+          - Ease to keep up to date with the community and Emacs packages
+
+* Why Spacemacs?
+
+        - For vim users:
+          - access to powerful packages like magit, org-mode, etc.
+          - increased discoverability
+
+        - For Emacs users:
+          - vim style bindings
+          - community-driven configuration
+          - more discoverable and cohesive
 
 * Installing Spacemacs
 
@@ -100,8 +112,6 @@ functionality are found in Spacemacs *Layers*.
             any external, non-Emacs dependencies
 
           - Either restart Emacs or hit ~SPC f e R~ to reload.
-
-
 
 * Resources
 
