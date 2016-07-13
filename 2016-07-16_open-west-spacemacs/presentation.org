@@ -1,0 +1,135 @@
+#+TITLE: Spacemacs
+#+AUTHOR: Travis B. Hartwell
+#+EMAIL: nafai@travishartwell.net
+
+             *The best of both Emacs and Vim Worlds*
+
+
+[[https://joind.in/talk/58b2e]]
+[[https://twitter.com/travisbhartwell][@travisbhartwell]]
+                        [[file:images/spacemacs-badge.svg]]
+
+* What is it?
+
+Spacemacs is a new way to experience Emacs -- a sophisticated and
+polished set-up focused on ergonomics, mnemonics and consistency.
+
+          - Community-driven configuration
+          - Configurable, switchable at run-time, key bindings in:
+            - vim style
+            - Emacs style
+            - hybrid
+          - Important functionality exposed via "Leader" keys
+
+* Installing Spacemacs
+
+         - Minimum requirements: Emacs 24.4 and git
+
+         - See https://github.com/syl20bnr/spacemacs#prerequisites
+           for platform specific requirements
+
+         - Quick and easy:
+#+BEGIN_SRC sh :eval no
+git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
+#+END_SRC
+
+* Updating Spacmacs
+
+          - Development is in the =develop= branch
+
+          - Periodic releases are done to the =master= branch
+          - If running a release, Spacemacs will check for new
+            releases on start
+
+          - Easy command to update / roll back Emacs packages
+            from the *Spacemacs Home Buffer* (~SPC b h~)
+
+          - Keep the development branch up to date either using
+            =magit= or the git CLI.
+
+* Configuring Spacemacs
+
+          - Instead of =~/.emacs= or =~/.emacs.d/init.el=, use
+            =~/.spacemacs= or =~/.spacemacs.d/init.el=
+
+          - It's based on a template with options for common
+            configuration items
+
+          - To compare your configuration with the current
+            template, use ~SPC f e D~.  Always do this after
+            doing updates so you get the latest settings.
+
+* Emacs concepts and terminology
+
+          - buffer, window, frame, minibuffer, modeline
+          - major and minor mode
+          - interactive functions
+          - key notation ~SPC~, ~C-c C-c~, etc
+
+* Spacemacs Conventions (Leader Key)
+
+          - Much general funtionality under the leader
+            ~SPC~ or ~M-m~
+          - Mode-specific functionality under ~SPC m~, ~M-m m~
+            or ',', ~C-M-m~
+          - Usually with mnemonics, for example:
+            ~SPC t n~ for *T*oggle line *n*umbering
+
+          - All incomplete key combinations documented with
+            =which-key=
+
+* Getting help in Spacemacs
+
+          - In general under ~SPC h~
+          - Evil tutor: ~SPC h T~
+          - Spacemacs Help: ~SPC h SPC~
+          - Various =describe-= options, including
+            - describe variable: ~SPC h d v~
+            - describe function: ~SPC h d f~
+
+* Layers
+
+Composable groups of related packages, configuration, and
+functionality are found in Spacemacs *Layers*.
+
+          - You use a layer by adding it to
+            =dotspacemacs-configuration-layers= in your
+            =.spacemacs= file.
+
+          - Check the documentation for the specific layers for
+            any external, non-Emacs dependencies
+
+          - Either restart Emacs or hit ~SPC f e R~ to reload.
+
+
+
+* Resources
+
+            - http://spacemacs.org/
+            - https://github.com/syl20bnr/spacemacs/
+            - https://gitter.im/syl20bnr/spacemacs
+
+            - https://www.reddit.com/r/spacemacs/
+
+            - [[https://www.youtube.com/playlist?list=PLrJ2YN5y27KLhd3yNs2dR8_inqtEiEweE][TheBB's Spacemacs ABC videos]]
+
+* Thanks
+
+ - Sylvain Benner, original author and maintainer of Spacemacs
+ - Eivind Fonn, Fabien Dubosson, and Boris, co-maintainers
+ - the Spacemacs community
+
+ - Basho Technologies
+   for letting me use my work laptop for the presentation
+
+* Contact / About Me
+ - [[mailto:nafai@travishartwell.net][nafai@travishartwell.net]]
+ - [[https://twitter.com/travisbhartwell][@travisbhartwell]]
+ - [[http://iam.travishartwell.net/][I am Travis Blog]]
+
+ - [[https://github.com/travisbhartwell]]
+ - [[https://gitlab.com/travisbhartwell/vcsh_emacs/][My Spacmacs configuration]]
+
+ - travisbhartwell on Gitter.IM
+
+Please reach out for help!
