@@ -1,9 +1,9 @@
 # Presentations and Publications for Travis B. Hartwell
 
-| Date       | Description                                             | Event                                                              | Link                                    |
-|------------|---------------------------------------------------------|--------------------------------------------------------------------|-----------------------------------------|
-| 2016-07-16 | "Spacemacs: The Best of Both the Emacs and Vim Worlds." | OpenWest 2016                                                      | [link](2016-07-16_open-west-spacemacs/) |
-| 2011-04-14 | "Web Automation with Python"                            | [Utah Python User's Group](https://utahpython.org/#/presentations) | [link](2011-04-14_utpy-web-automation/) |
+| Date       | Description                                             | Event                                               | Link                                    |
+|------------|---------------------------------------------------------|-----------------------------------------------------|-----------------------------------------|
+| 2016-07-16 | "Spacemacs: The Best of Both the Emacs and Vim Worlds." | OpenWest 2016                                       | [link](2016-07-16_open-west-spacemacs/) |
+| 2011-04-14 | "Web Automation with Python"                            | [Utah Python User's Group](https://utahpython.org/) | [link](2011-04-14_utpy-web-automation/) |
 
 # Publications
 
