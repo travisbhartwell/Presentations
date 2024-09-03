@@ -1,0 +1,460 @@
+<html>
+<head>
+<title>PyGtk and PyGnome Programming</title>
+</head>
+
+<body>
+<h1>PyGtk and PyGnome Programming</h1>
+
+
+<h2> </h2>
+
+<div class="ctr">
+<p><strong>PyGTK and PyGnome Programming</strong></p>
+<p>Travis B. Hartwell</p>
+<p>nafai@travishartwell.net</p>
+<p>http://www.travishartwell.net/pycon2004/</p>
+</div>
+
+<h2>GUI Programming</h2>
+<ul>
+<li><p>Sometimes can be not very fun</p></li>
+<li><p>Is necessary to make useful and productive applications</p></li>
+</ul>
+
+<h2>Python and GTK</h2>
+
+<ul>
+<li><p>The combination makes GUI programming relatively painless and
+quick</p></li>
+<li><p>The interactive interpreter helps</p></li>
+</ul>
+
+<h2>Our Example: <em>PyCon Chatter</em></h2>
+
+<p>
+A chat client -- <q>real world</q> yet simple enough to demonstrate
+basic GTK and Gnome development.
+</p>
+
+<div class="image">
+
+<img src="chat4.png" />
+
+<p>
+The final Gnome version.
+</p>
+
+</div>
+
+<h2>Stage 1: Plain Gtk API</h2>
+
+<p>
+Using plain Gtk API calls for widget creation and layout.
+</p>
+
+<ul>
+  <li>Demonstration</li>
+  <li>Quick Code glance</li>
+  <li>Containers</li>
+  <li>Signals/Event Handlers</li>
+</ul>
+
+<h2>Containers</h2>
+
+<ul>
+<li><p>
+Many widgets in Gtk are Container widgets.
+</p></li>
+
+<li><p>
+Used to manage layouts of other widgets, such as:
+<ul>
+  <li>buttons</li>
+  <li>text entry</li>
+  <li>etc</li>
+</ul>
+</p></li>
+
+<li><p>
+Other widgets are added or packed to these containers.
+</p></li>
+</ul>
+
+<h2>Containers: Example</h2>
+
+<pre class="python">
+win = gtk.Window()
+win.add(gtk.Button("Ok")
+win.show_all()
+gtk.main()
+</pre>
+
+<div class="image">
+<img src="ex1.png" />
+</div>
+
+<h2>Signals and Event Handlers</h2>
+
+
+<ul>
+  <li><p>
+Widgets in Gtk emit signals when events happen (button click, etc.).
+</p></li>
+
+<li>
+<p>
+To handle the signal, you must connect it with a Python method.
+</p>
+</li>
+</ul>
+
+<h2>Event handlers: Example from the application</h2>
+
+<p>
+First, connect the signal:
+</p>
+
+<pre class="python">
+   self.entry.connect("activate", self.sendMessage)
+</pre>
+
+<p>
+Then, define the handler:
+</p>
+
+<pre class="python">
+def sendMessage(self, entry):
+    self.buffer.insert_at_cursor('%s\n' % self.entry.get_text())
+    self.entry.set_text('')
+</pre>
+
+<h2>Stage 2: Glade</h2>
+
+<ul>
+  <li><p>
+GUI code for widget creation and layout can become tedious.
+</p>
+</li>
+
+<li><p>
+Glade is a user interface builder for Gtk
+</p>
+</li>
+
+<ul>
+<li><p>
+Originally, glade would generate C or C++ code
+</p></li>
+
+<li><p>libglade loads the glade files at runtime
+</p></li>
+
+<li><p>Now the preferred method of using glade</p></li>
+
+<li><p>The only way to use glade with Python</p></li>
+</ul>
+</ul>
+<h2>Glade Demo and libglade usage</h2>
+
+<p>
+After you have created and saved your glade layout, you load it like
+this:
+
+<pre class="python">
+self.xml = gtk.glade.XML('chat-2.glade')
+</pre>
+</p>
+
+<p>
+This creates the layout for you.  To get references to the various
+widgets:
+
+<pre class="python">
+self.entry = self.xml.get_widget('entry')
+</pre>
+</p>
+
+<p>
+Connect the signals and handlers like before, or like this:
+
+<pre class="python">
+signals = {'sendMessage': self.sendMessage}
+self.xml.signal_autoconnect(signals)
+</pre>
+</p>
+
+<h2>Things are now much simpler!</h2>
+
+<ul>
+  <li>
+Plain Gtk API call version: 77 lines
+  </li>
+<li>
+Functionally equivalent Glade version: 37 lines
+</li>
+<li>
+<p>
+This difference will only get larger with more complex GUIs.
+</p>
+</li>
+
+<li>
+<p>
+Glade also allows you to make changes to the layout and widget
+properties without touching source code.
+</p>
+</li>
+</ul>
+
+<h2>Stage 3: Dialog boxes and external events</h2>
+
+<ul>
+  <li><p>PyCon Chatter isn't useful without network connectivity</p></li>
+  <ul><li><p>A small amount of Twisted code is used for writing client code</p></li></ul>
+  <li><p>Dialog and Message boxes</p></li>
+</ul>
+
+<h2>Message boxes</h2>
+
+<p>
+Gtk provides a message box containing a small image used for
+describing the message type and then a small message.
+</p>
+
+<p>
+For example, to create and display a error dialog:
+</p>
+
+<pre class="python">
+error = gtk.MessageDialog(self.window,
+                          gtk.DIALOG_MODAL | gtk.DIALOG_DESTROY_WITH_PARENT,
+                          gtk.MESSAGE_ERROR, gtk.BUTTONS_CLOSE,
+                          "Please connect before sending messages")
+error.run()
+error.destroy()
+</pre>
+
+<p>
+This is the resulting dialog:
+</p>
+
+<div class="image">
+<img src="errdlg.png" />
+</div>
+
+<h2>Dialog boxes</h2>
+
+<p>
+<ul>
+  <li><p>Dialog boxes are instances of <code class="python">gtk.Dialog</code></p></li>
+  <li><p>Buttons and other widgets in a dialog box emit <q>responses</q></p></li>
+  <li><p>To wait for user response call <code class="python">myDlg.run()</code></p></li>
+</ul>
+</p>
+<p>
+<ul>
+   <li><p>A dialog box is used for the Connect Dialog</p></li>
+</ul>
+</p>
+
+<h2>Multiple windows in a Glade file</h2>
+
+<p>Since all windows and dialog boxes for my application are defined
+in one glade file:</p>
+
+<ul>
+  <p>
+     <li>
+         Specify the window or dialog name when loading
+         <ul>
+	    <li><code class="python">self.xml = gtk.glade.XML('chat-3.glade', 'window')</code></li>
+	 </ul>
+     </li>
+  </p>
+
+  <p>
+     <li>
+     Each window or dialog is in its own class
+     </li>
+   </p>
+</ul>
+
+<p> </p>
+
+<h2>Receiving external events</h2>
+
+<ul>
+<p><li>PyGTK programs can also respond to external non-GUI events</li></p>
+<li><p>The Twisted Protocol Factory  calls the <code class="python">writeMessage</code> 
+method on our Chatter class:</p>
+<pre class="python">
+def lineReceived(self, line):
+    self.chatter.writeMessage(line)
+</pre>
+<p>In turn:</p>
+<pre class="python">
+def writeMessage(self, msg):
+    self.buffer.insert_at_cursor('%s\n' % msg)
+</pre>
+</li>
+</ul>
+
+<h2>For the curiously Twisted</h2>
+
+<ul>
+  <li><p>The GTK and Twisted mainloops need to be integrated</p></li>
+  <li><p>Before either gtk or the Twisted reactors are imported:</p>
+  <pre class="python">
+from twisted.internet import gtk2reactor
+gtk2reactor.install()
+  </pre></li>
+  <li><p>Instead of calling <code class="python">gtk.main()</code>,
+  call <code class="python">reactor.run()</code></p></li>
+</ul>
+
+<h2>Stage 4: Full-fledged Gnome application</h2>
+
+<p>We can make our Python application a part of the Gnome desktop
+by:</p>
+<ul>
+  <li><p>Using the <code class="python">GnomeApp</code> class instead
+  of <code class="python">gtk.Window</code></p></li>
+  <li><p>Utilizing the standard Gnome About box</p></li>
+  <li><p>Storing configuration data using GConf</p></li>
+</ul>
+
+<h2>Storing configuration data with GConf</h2>
+
+<ul>
+<li><p>GConf is Gnome's configuration database</p></li>
+<li><p>GConf keys are of different types: integer, boolean, float,
+string, list</p></li>
+<li><p>First, get a client connection to the database:</p>
+<pre class="python">
+self.gconfClient = gconf.client_get_default()
+</pre>
+</li>
+<li><p>To get a GConf key value:</p>
+<pre class="python">
+self.username = self.gconfClient.get_string("/apps/pyconchatter/username")
+</pre>
+<ul><li>Returns <code class="python">None</code> if the value is not
+  set</li></ul>
+</li>
+<li><p>To set a GConf key:</p>
+<pre class="python">
+self.gconfClient.set_string("/apps/pyconchatter/username", username)
+</pre>
+</li>
+</ul>
+
+<h2>Just for fun: Gnome Panel Applet</h2>
+
+<p>There are also bindings for writing Gnome panel applets</p>
+
+<ul>
+<li><p>An applet factory</p></li>
+<li><p>server files</p></li>
+</ul>
+
+<h2>Applet factory</h2>
+
+<ul>
+<li><p>Gnome uses a factory to create your applet instance</p></li>
+
+<pre class="python">
+def factory(container, iid):
+    applet = Applet(container)
+    container.show_all()
+    return gtk.TRUE
+</pre>
+
+<li><p>You then call the Gnome bonobo factory methods</p>
+
+<pre class="python">
+gnome.applet.bonobo_factory("OAFIID:GNOME_ChatApplet_Factory", 
+                            gnome.applet.Applet.__gtype__, 
+                            "ChatApplet", "0", factory)
+</pre>
+</li>
+</ul>
+
+<h2>Server Files: Prepare to be scared</h2>
+
+<p>To register your applet with the Bonobo Activation server, you need to
+create a .server file:</p>
+
+<pre>
+&lt;oaf_info&gt;
+&lt;oaf_server iid="OAFIID:GNOME_ChatApplet_Factory"
+            type="exe"
+            location="/home/nafai/data/projects/pycon2004/code/applet/chat-applet.py"&gt;
+        &lt;oaf_attribute name="repo_ids" type="stringv"&gt;
+                &lt;item value="IDL:Bonobo/GenericFactory:1.0"/&gt;
+                &lt;item value="IDL:Bonobo/Unknown:1.0"/&gt;
+        &lt;/oaf_attribute&gt;
+        &lt;oaf_attribute name="name" type="string" value="ChatApplet Factory"/&gt;
+        &lt;oaf_attribute name="description" type="string" value="Test"/&gt;
+&lt;/oaf_server&gt;
+
+&lt;oaf_server iid="OAFIID:GNOME_ChatApplet"
+            type="factory" 
+            location="OAFIID:GNOME_ChatApplet_Factory"&gt;
+        &lt;oaf_attribute name="repo_ids" type="stringv"&gt;
+                &lt;item value="IDL:GNOME/Vertigo/PanelAppletShell:1.0"/&gt;
+                &lt;item value="IDL:Bonobo/Control:1.0"/&gt;
+                &lt;item value="IDL:Bonobo/Unknown:1.0"/&gt;
+        &lt;/oaf_attribute&gt;
+        &lt;oaf_attribute name="name" type="string" value="Chat Applet"/&gt;
+        &lt;oaf_attribute name="description" type="string"
+                value="Chat Applet"/&gt;
+	&lt;oaf_attribute name="panel:icon" type="string" value="twistedlogo.png"/&gt;
+        &lt;oaf_attribute name="panel:category" type="string" value="Utility"/&gt;
+&lt;/oaf_server&gt;
+&lt;/oaf_info&gt;
+</pre>
+
+<h2>Server files</h2>
+
+<ul>
+  <li>
+<p>This file needs to go in your Bonobo Activation path:</p>
+  </li>
+  <ul>
+  <li>/usr/lib/bonobo/servers</li>
+  <li>A directory pointed to by $BONOBO_ACTIVATION_PATH</li>
+  </ul>
+</ul>
+
+<h2>Again, for the curiously Twisted</h2>
+
+<ul>
+  
+<li><p>In addition to the <code class="python">gtk2reactor</code> import
+as before,</p></li>
+<li><p>Panel Applets handle mainloops differently, so <code
+class="python">reactor.run()</code> isn't what you want</p></li>
+<li><p>Instead:</p>
+<pre class="python">
+reactor.startRunning()
+reactor.simulate()
+</pre>
+</li>
+<li><p>Do this right before calling <code class="python">gnome.applet.bonobo_factory(...)</code></p></li>
+</ul>
+
+<h2>Conclusions</h2>
+
+<ul>
+<li><p>Python along with PyGTK and PyGnome is a very viable platform for
+  application development</p></li>
+<li><p>Coupled with Glade and the Python interactive interpreter, it truly can
+  be for what some call <q>Rapid Application Development</q></p></li>
+</ul>
+
+<h2>Questions</h2>
+
+<p>Any questions?</p>
+</body>
+</html>

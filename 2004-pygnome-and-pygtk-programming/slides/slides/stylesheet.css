@@ -1,0 +1,193 @@
+body
+{
+  background-color: #fff;
+}
+
+.navigation
+{
+  position: relative;
+  border: 0px;
+  display: block;
+  padding: 2px;
+  height: 24px;
+  font-family: "Lucida Grande", Verdana, Lucida, Arial, Helvetica, sans-serif;
+  font-size: 10px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.navigation a
+{
+  text-decoration: none;
+  color: black;
+}
+
+#previous
+{
+  float: left;
+}
+
+#next
+{
+  float: right;
+}
+
+h1
+{
+  clear: both;
+  margin: 10px;
+}
+
+.top
+{
+  display: block;
+  text-align: center;
+  padding: 10px 20px 20px 20px;
+  margin-bottom: -8px;
+  border-bottom: 1px solid;
+}
+
+.content
+{
+  padding: 10px 10px 5px 10px;
+  margin: 10px 5px 2px 5px;
+  position: relative;
+  border-bottom: 1px solid black;
+}
+
+.footer
+{
+  display: block;
+  color: black;
+  font-family: "Lucida Grande", Verdana, Lucida, Arial, Helvetica, sans-serif;
+  font-size: 10px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.footer #ptitle
+{
+  float: left;
+  text-align: left;
+}
+
+.footer a
+{
+  float: right;
+  text-decoration: none;
+  text-align: right;
+}
+
+.footer a:visited
+{
+  color: black;
+}
+
+.footer a:link
+{
+  color: black;
+}
+
+.python
+{
+  background-color: #dddddd;
+}
+
+.py-prototype
+{
+  background-color: #ddddff;
+}
+
+
+.python-interpreter
+{
+  background-color: #ddddff;
+}
+
+.doit 
+{
+  border: thin blue dashed ;
+  background-color: #0ef
+}
+
+.py-src-comment
+{
+  color: #1111CC
+}
+
+.py-src-keyword
+{
+  color: #3333CC;
+  font-weight: bold;
+}
+
+.py-src-parameter
+{
+  color: #000066;
+  font-weight: bold;
+}
+
+.py-src-identifier
+{
+  color: #CC0000
+}
+
+.py-src-string
+{
+  
+  color: #115511
+}
+
+.py-src-endmarker
+{
+  display: block; /* IE hack; prevents following line from being sucked into the py-listing box. */
+}
+
+.py-listing, .html-listing, .listing 
+{
+  margin: 1ex;
+  border: thin solid black;
+  background-color: #eee;
+}
+
+.py-listing pre, .html-listing pre, .listing pre
+{
+  margin: 0px;
+  border: none;
+  border-bottom: thin solid black;
+}
+
+.py-listing .python 
+{
+  margin-top: 0;
+  margin-bottom: 0;
+  border: none;
+  border-bottom: thin solid black;
+}
+
+.image
+{
+  text-align: center;
+}
+
+.image img
+{
+  width: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+pre
+{
+  padding: 1em;
+  font-family: Neep Alt, Courier New, Courier;
+  font-size: 12pt;
+  border: thin black solid;
+}
+
+.ctr
+{
+  text-align: center;
+  font-family: "Lucida Grande", Verdana, Lucida, Arial, Helvetica, sans-serif;
+  font-size: 18pt;
+}

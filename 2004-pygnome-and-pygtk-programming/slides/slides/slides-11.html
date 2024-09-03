@@ -1,0 +1,24 @@
+<?xml version="1.0"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><title>PyGtk and PyGnome Programming: Glade Demo and libglade usage</title><link href="stylesheet.css" type="text/css" rel="stylesheet" /><link href="nafai@travishartwell.net" rel="author" title="Travis B. Hartwell" /></head><body><div class="top"><span class="navigation" id="previous"><a accesskey="P" href="slides-10.html" class="previous">
+	    Previous
+	 Stage 2: Glade</a></span><span class="navigation" id="next"><a accesskey="N" href="slides-12.html" class="next">
+	    Next
+	 Things are now much simpler!</a></span></div><h1 class="title">Glade Demo and libglade usage</h1><div class="content"><p>
+After you have created and saved your glade layout, you load it like
+this:
+
+<pre class="python">
+<span class="py-src-variable">self</span><span class="py-src-op">.</span><span class="py-src-variable">xml</span> <span class="py-src-op">=</span> <span class="py-src-variable">gtk</span><span class="py-src-op">.</span><span class="py-src-variable">glade</span><span class="py-src-op">.</span><span class="py-src-variable">XML</span><span class="py-src-op">(</span><span class="py-src-string">'chat-2.glade'</span><span class="py-src-op">)</span><span class="py-src-newline">
+</span><span class="py-src-endmarker"></span></pre></p><p>
+This creates the layout for you.  To get references to the various
+widgets:
+
+<pre class="python">
+<span class="py-src-variable">self</span><span class="py-src-op">.</span><span class="py-src-variable">entry</span> <span class="py-src-op">=</span> <span class="py-src-variable">self</span><span class="py-src-op">.</span><span class="py-src-variable">xml</span><span class="py-src-op">.</span><span class="py-src-variable">get_widget</span><span class="py-src-op">(</span><span class="py-src-string">'entry'</span><span class="py-src-op">)</span><span class="py-src-newline">
+</span><span class="py-src-endmarker"></span></pre></p><p>
+Connect the signals and handlers like before, or like this:
+
+<pre class="python">
+<span class="py-src-variable">signals</span> <span class="py-src-op">=</span> <span class="py-src-op">{</span><span class="py-src-string">'sendMessage'</span><span class="py-src-op">:</span> <span class="py-src-variable">self</span><span class="py-src-op">.</span><span class="py-src-variable">sendMessage</span><span class="py-src-op">}</span><span class="py-src-newline">
+</span><span class="py-src-variable">self</span><span class="py-src-op">.</span><span class="py-src-variable">xml</span><span class="py-src-op">.</span><span class="py-src-variable">signal_autoconnect</span><span class="py-src-op">(</span><span class="py-src-variable">signals</span><span class="py-src-op">)</span><span class="py-src-newline">
+</span><span class="py-src-endmarker"></span></pre></p></div><div class="footer"><span id="ptitle">PyGtk and PyGnome Programming</span><a href="http://www.travishartwell.net">http://www.travishartwell.net</a></div></body></html>

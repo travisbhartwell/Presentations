@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="1"
+   name=""
+   committed-date="2004-03-03T03:32:24.154675Z"
+   url="file:///usr/local/svn/pycon2004/slides"
+   last-author="nafai"
+   kind="dir"
+   uuid="fea79bb8-b1d4-0310-a5bd-dccb9d12ffb3"
+   revision="1"/>
+<entry
+   name="slides.aux"
+   kind="file"
+   deleted="true"
+   revision="2"/>
+<entry
+   committed-rev="1"
+   name="slides.tex"
+   text-time="2004-03-03T03:32:40.000000Z"
+   committed-date="2004-03-03T03:32:24.154675Z"
+   checksum="86925a9882ebb9334259c462ebf1439c"
+   last-author="nafai"
+   kind="file"
+   prop-time="2004-03-03T03:32:40.000000Z"/>
+<entry
+   name="slides-0.html"
+   kind="file"
+   deleted="true"
+   revision="2"/>
+<entry
+   name="slides.log"
+   kind="file"
+   deleted="true"
+   revision="2"/>
+<entry
+   name="slides-1.html"
+   kind="file"
+   deleted="true"
+   revision="2"/>
+<entry
+   name="slides.dvi"
+   kind="file"
+   deleted="true"
+   revision="2"/>
+<entry
+   name="slides.ps"
+   kind="file"
+   deleted="true"
+   revision="2"/>
+<entry
+   committed-rev="1"
+   name="slides.html"
+   text-time="2004-03-03T03:32:40.000000Z"
+   committed-date="2004-03-03T03:32:24.154675Z"
+   checksum="698db7344763e9f05a0d7da700b37843"
+   last-author="nafai"
+   kind="file"
+   prop-time="2004-03-03T03:32:40.000000Z"/>
+<entry
+   committed-rev="1"
+   name="template.tpl"
+   text-time="2004-03-03T03:32:40.000000Z"
+   committed-date="2004-03-03T03:32:24.154675Z"
+   checksum="155a3de899c9c99e9383a7e519a86e52"
+   last-author="nafai"
+   kind="file"
+   prop-time="2004-03-03T03:32:40.000000Z"/>
+<entry
+   name="slides.out"
+   kind="file"
+   deleted="true"
+   revision="2"/>
+<entry
+   committed-rev="1"
+   name="slides-template.tpl"
+   text-time="2004-03-03T03:32:40.000000Z"
+   committed-date="2004-03-03T03:32:24.154675Z"
+   checksum="d4a4157d5f9d340e74b0876ac02cc063"
+   last-author="nafai"
+   kind="file"
+   prop-time="2004-03-03T03:32:40.000000Z"/>
+</wc-entries>

@@ -1,0 +1,35 @@
+<?xml version="1.0"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><title>PyGtk and PyGnome Programming: Server Files: Prepare to be scared</title><link href="stylesheet.css" type="text/css" rel="stylesheet" /><link href="nafai@travishartwell.net" rel="author" title="Travis B. Hartwell" /></head><body><div class="top"><span class="navigation" id="previous"><a accesskey="P" href="slides-22.html" class="previous">
+	    Previous
+	 Applet factory</a></span><span class="navigation" id="next"><a accesskey="N" href="slides-24.html" class="next">
+	    Next
+	 Server files</a></span></div><h1 class="title">Server Files: Prepare to be scared</h1><div class="content"><p>To register your applet with the Bonobo Activation server, you need to
+create a .server file:</p><pre>
+&lt;oaf_info&gt;
+&lt;oaf_server iid=&quot;OAFIID:GNOME_ChatApplet_Factory&quot;
+            type=&quot;exe&quot;
+            location=&quot;/home/nafai/data/projects/pycon2004/code/applet/chat-applet.py&quot;&gt;
+        &lt;oaf_attribute name=&quot;repo_ids&quot; type=&quot;stringv&quot;&gt;
+                &lt;item value=&quot;IDL:Bonobo/GenericFactory:1.0&quot;/&gt;
+                &lt;item value=&quot;IDL:Bonobo/Unknown:1.0&quot;/&gt;
+        &lt;/oaf_attribute&gt;
+        &lt;oaf_attribute name=&quot;name&quot; type=&quot;string&quot; value=&quot;ChatApplet Factory&quot;/&gt;
+        &lt;oaf_attribute name=&quot;description&quot; type=&quot;string&quot; value=&quot;Test&quot;/&gt;
+&lt;/oaf_server&gt;
+
+&lt;oaf_server iid=&quot;OAFIID:GNOME_ChatApplet&quot;
+            type=&quot;factory&quot; 
+            location=&quot;OAFIID:GNOME_ChatApplet_Factory&quot;&gt;
+        &lt;oaf_attribute name=&quot;repo_ids&quot; type=&quot;stringv&quot;&gt;
+                &lt;item value=&quot;IDL:GNOME/Vertigo/PanelAppletShell:1.0&quot;/&gt;
+                &lt;item value=&quot;IDL:Bonobo/Control:1.0&quot;/&gt;
+                &lt;item value=&quot;IDL:Bonobo/Unknown:1.0&quot;/&gt;
+        &lt;/oaf_attribute&gt;
+        &lt;oaf_attribute name=&quot;name&quot; type=&quot;string&quot; value=&quot;Chat Applet&quot;/&gt;
+        &lt;oaf_attribute name=&quot;description&quot; type=&quot;string&quot;
+                value=&quot;Chat Applet&quot;/&gt;
+	&lt;oaf_attribute name=&quot;panel:icon&quot; type=&quot;string&quot; value=&quot;twistedlogo.png&quot;/&gt;
+        &lt;oaf_attribute name=&quot;panel:category&quot; type=&quot;string&quot; value=&quot;Utility&quot;/&gt;
+&lt;/oaf_server&gt;
+&lt;/oaf_info&gt;
+</pre></div><div class="footer"><span id="ptitle">PyGtk and PyGnome Programming</span><a href="http://www.travishartwell.net">http://www.travishartwell.net</a></div></body></html>

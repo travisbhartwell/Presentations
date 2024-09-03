@@ -1,0 +1,14 @@
+<?xml version="1.0"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><title>PyGtk and PyGnome Programming: Storing configuration data with GConf</title><link href="stylesheet.css" type="text/css" rel="stylesheet" /><link href="nafai@travishartwell.net" rel="author" title="Travis B. Hartwell" /></head><body><div class="top"><span class="navigation" id="previous"><a accesskey="P" href="slides-19.html" class="previous">
+	    Previous
+	 Stage 4: Full-fledged Gnome application</a></span><span class="navigation" id="next"><a accesskey="N" href="slides-21.html" class="next">
+	    Next
+	 Just for fun: Gnome Panel Applet</a></span></div><h1 class="title">Storing configuration data with GConf</h1><div class="content"><ul><li><p>GConf is Gnome's configuration database</p></li><li><p>GConf keys are of different types: integer, boolean, float,
+string, list</p></li><li><p>First, get a client connection to the database:</p><pre class="python">
+<span class="py-src-variable">self</span><span class="py-src-op">.</span><span class="py-src-variable">gconfClient</span> <span class="py-src-op">=</span> <span class="py-src-variable">gconf</span><span class="py-src-op">.</span><span class="py-src-variable">client_get_default</span><span class="py-src-op">(</span><span class="py-src-op">)</span><span class="py-src-newline">
+</span><span class="py-src-endmarker"></span></pre></li><li><p>To get a GConf key value:</p><pre class="python">
+<span class="py-src-variable">self</span><span class="py-src-op">.</span><span class="py-src-variable">username</span> <span class="py-src-op">=</span> <span class="py-src-variable">self</span><span class="py-src-op">.</span><span class="py-src-variable">gconfClient</span><span class="py-src-op">.</span><span class="py-src-variable">get_string</span><span class="py-src-op">(</span><span class="py-src-string">&quot;/apps/pyconchatter/username&quot;</span><span class="py-src-op">)</span><span class="py-src-newline">
+</span><span class="py-src-endmarker"></span></pre><ul><li>Returns <code class="python">None</code> if the value is not
+  set</li></ul></li><li><p>To set a GConf key:</p><pre class="python">
+<span class="py-src-variable">self</span><span class="py-src-op">.</span><span class="py-src-variable">gconfClient</span><span class="py-src-op">.</span><span class="py-src-variable">set_string</span><span class="py-src-op">(</span><span class="py-src-string">&quot;/apps/pyconchatter/username&quot;</span><span class="py-src-op">,</span> <span class="py-src-variable">username</span><span class="py-src-op">)</span><span class="py-src-newline">
+</span><span class="py-src-endmarker"></span></pre></li></ul></div><div class="footer"><span id="ptitle">PyGtk and PyGnome Programming</span><a href="http://www.travishartwell.net">http://www.travishartwell.net</a></div></body></html>

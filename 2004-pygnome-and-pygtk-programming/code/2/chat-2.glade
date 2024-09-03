@@ -1,0 +1,137 @@
+<?xml version="1.0" standalone="no"?> <!--*- mode: xml -*-->
+<!DOCTYPE glade-interface SYSTEM "http://glade.gnome.org/glade-2.0.dtd">
+
+<glade-interface>
+
+<widget class="GtkWindow" id="window">
+  <property name="visible">True</property>
+  <property name="title" translatable="yes">PyCon Chatter</property>
+  <property name="type">GTK_WINDOW_TOPLEVEL</property>
+  <property name="window_position">GTK_WIN_POS_NONE</property>
+  <property name="modal">False</property>
+  <property name="default_width">640</property>
+  <property name="default_height">480</property>
+  <property name="resizable">True</property>
+  <property name="destroy_with_parent">False</property>
+
+  <child>
+    <widget class="GtkVBox" id="vbox">
+      <property name="visible">True</property>
+      <property name="homogeneous">False</property>
+      <property name="spacing">0</property>
+
+      <child>
+	<widget class="GtkMenuBar" id="menuBar">
+	  <property name="visible">True</property>
+
+	  <child>
+	    <widget class="GtkMenuItem" id="fileItem">
+	      <property name="visible">True</property>
+	      <property name="label" translatable="yes">_File</property>
+	      <property name="use_underline">True</property>
+
+	      <child>
+		<widget class="GtkMenu" id="fileMenu">
+
+		  <child>
+		    <widget class="GtkImageMenuItem" id="quitItem">
+		      <property name="visible">True</property>
+		      <property name="label">gtk-quit</property>
+		      <property name="use_stock">True</property>
+		      <signal name="activate" handler="close" last_modification_time="Fri, 19 Mar 2004 23:02:41 GMT"/>
+		      <accelerator key="Q" modifiers="GDK_CONTROL_MASK" signal="activate"/>
+		    </widget>
+		  </child>
+		</widget>
+	      </child>
+	    </widget>
+	  </child>
+
+	  <child>
+	    <widget class="GtkMenuItem" id="editItem">
+	      <property name="visible">True</property>
+	      <property name="label" translatable="yes">_Edit</property>
+	      <property name="use_underline">True</property>
+
+	      <child>
+		<widget class="GtkMenu" id="editMenu">
+
+		  <child>
+		    <widget class="GtkImageMenuItem" id="clearItem">
+		      <property name="visible">True</property>
+		      <property name="label">gtk-clear</property>
+		      <property name="use_stock">True</property>
+		      <signal name="activate" handler="clear" last_modification_time="Fri, 19 Mar 2004 23:02:41 GMT"/>
+		    </widget>
+		  </child>
+		</widget>
+	      </child>
+	    </widget>
+	  </child>
+	</widget>
+	<packing>
+	  <property name="padding">0</property>
+	  <property name="expand">False</property>
+	  <property name="fill">False</property>
+	</packing>
+      </child>
+
+      <child>
+	<widget class="GtkScrolledWindow" id="sw">
+	  <property name="visible">True</property>
+	  <property name="can_focus">True</property>
+	  <property name="hscrollbar_policy">GTK_POLICY_AUTOMATIC</property>
+	  <property name="vscrollbar_policy">GTK_POLICY_AUTOMATIC</property>
+	  <property name="shadow_type">GTK_SHADOW_NONE</property>
+	  <property name="window_placement">GTK_CORNER_TOP_LEFT</property>
+
+	  <child>
+	    <widget class="GtkTextView" id="textView">
+	      <property name="visible">True</property>
+	      <property name="can_focus">True</property>
+	      <property name="editable">False</property>
+	      <property name="justification">GTK_JUSTIFY_LEFT</property>
+	      <property name="wrap_mode">GTK_WRAP_WORD</property>
+	      <property name="cursor_visible">False</property>
+	      <property name="pixels_above_lines">0</property>
+	      <property name="pixels_below_lines">0</property>
+	      <property name="pixels_inside_wrap">0</property>
+	      <property name="left_margin">0</property>
+	      <property name="right_margin">0</property>
+	      <property name="indent">0</property>
+	      <property name="text" translatable="yes"></property>
+	    </widget>
+	  </child>
+	</widget>
+	<packing>
+	  <property name="padding">0</property>
+	  <property name="expand">True</property>
+	  <property name="fill">True</property>
+	</packing>
+      </child>
+
+      <child>
+	<widget class="GtkEntry" id="entry">
+	  <property name="visible">True</property>
+	  <property name="can_focus">True</property>
+	  <property name="has_focus">True</property>
+	  <property name="editable">True</property>
+	  <property name="visibility">True</property>
+	  <property name="max_length">0</property>
+	  <property name="text" translatable="yes"></property>
+	  <property name="has_frame">True</property>
+	  <property name="invisible_char" translatable="yes">*</property>
+	  <property name="activates_default">False</property>
+	  <signal name="activate" handler="sendMessage" last_modification_time="Fri, 19 Mar 2004 23:05:22 GMT"/>
+	</widget>
+	<packing>
+	  <property name="padding">0</property>
+	  <property name="expand">False</property>
+	  <property name="fill">False</property>
+	</packing>
+      </child>
+    </widget>
+  </child>
+</widget>
+
+</glade-interface>

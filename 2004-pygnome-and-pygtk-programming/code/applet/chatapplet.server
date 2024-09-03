@@ -1,0 +1,31 @@
+<oaf_info>
+
+<oaf_server iid="OAFIID:GNOME_ChatApplet_Factory"
+            type="exe"
+            location="/home/nafai/data/projects/pycon2004/code/applet/chat-applet.py">
+
+        <oaf_attribute name="repo_ids" type="stringv">
+                <item value="IDL:Bonobo/GenericFactory:1.0"/>
+                <item value="IDL:Bonobo/Unknown:1.0"/>
+        </oaf_attribute>
+        <oaf_attribute name="name" type="string" value="ChatApplet Factory"/>
+        <oaf_attribute name="description" type="string" value="Test"/>
+</oaf_server>
+
+<oaf_server iid="OAFIID:GNOME_ChatApplet"
+            type="factory" 
+            location="OAFIID:GNOME_ChatApplet_Factory">
+
+        <oaf_attribute name="repo_ids" type="stringv">
+                <item value="IDL:GNOME/Vertigo/PanelAppletShell:1.0"/>
+                <item value="IDL:Bonobo/Control:1.0"/>
+                <item value="IDL:Bonobo/Unknown:1.0"/>
+        </oaf_attribute>
+        <oaf_attribute name="name" type="string" value="Chat Applet"/>
+        <oaf_attribute name="description" type="string"
+                value="Chat Applet"/>
+	<oaf_attribute name="panel:icon" type="string" value="twistedlogo.png"/>
+        <oaf_attribute name="panel:category" type="string" value="Utility"/>
+</oaf_server>
+
+</oaf_info>

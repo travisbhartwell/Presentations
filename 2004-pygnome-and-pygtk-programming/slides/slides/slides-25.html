@@ -1,0 +1,10 @@
+<?xml version="1.0"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><title>PyGtk and PyGnome Programming: Again, for the curiously Twisted</title><link href="stylesheet.css" type="text/css" rel="stylesheet" /><link href="nafai@travishartwell.net" rel="author" title="Travis B. Hartwell" /></head><body><div class="top"><span class="navigation" id="previous"><a accesskey="P" href="slides-24.html" class="previous">
+	    Previous
+	 Server files</a></span><span class="navigation" id="next"><a accesskey="N" href="slides-26.html" class="next">
+	    Next
+	 Conclusions</a></span></div><h1 class="title">Again, for the curiously Twisted</h1><div class="content"><ul><li><p>In addition to the <code class="python">gtk2reactor</code> import
+as before,</p></li><li><p>Panel Applets handle mainloops differently, so <code class="python">reactor.run()</code> isn't what you want</p></li><li><p>Instead:</p><pre class="python">
+<span class="py-src-variable">reactor</span><span class="py-src-op">.</span><span class="py-src-variable">startRunning</span><span class="py-src-op">(</span><span class="py-src-op">)</span><span class="py-src-newline">
+</span><span class="py-src-variable">reactor</span><span class="py-src-op">.</span><span class="py-src-variable">simulate</span><span class="py-src-op">(</span><span class="py-src-op">)</span><span class="py-src-newline">
+</span><span class="py-src-endmarker"></span></pre></li><li><p>Do this right before calling <code class="python">gnome.applet.bonobo_factory(...)</code></p></li></ul></div><div class="footer"><span id="ptitle">PyGtk and PyGnome Programming</span><a href="http://www.travishartwell.net">http://www.travishartwell.net</a></div></body></html>

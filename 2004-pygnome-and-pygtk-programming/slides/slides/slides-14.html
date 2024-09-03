@@ -1,0 +1,20 @@
+<?xml version="1.0"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><title>PyGtk and PyGnome Programming: Message boxes</title><link href="stylesheet.css" type="text/css" rel="stylesheet" /><link href="nafai@travishartwell.net" rel="author" title="Travis B. Hartwell" /></head><body><div class="top"><span class="navigation" id="previous"><a accesskey="P" href="slides-13.html" class="previous">
+	    Previous
+	 Stage 3: Dialog boxes and external events</a></span><span class="navigation" id="next"><a accesskey="N" href="slides-15.html" class="next">
+	    Next
+	 Dialog boxes</a></span></div><h1 class="title">Message boxes</h1><div class="content"><p>
+Gtk provides a message box containing a small image used for
+describing the message type and then a small message.
+</p><p>
+For example, to create and display a error dialog:
+</p><pre class="python">
+<span class="py-src-variable">error</span> <span class="py-src-op">=</span> <span class="py-src-variable">gtk</span><span class="py-src-op">.</span><span class="py-src-variable">MessageDialog</span><span class="py-src-op">(</span><span class="py-src-variable">self</span><span class="py-src-op">.</span><span class="py-src-variable">window</span><span class="py-src-op">,</span><span class="py-src-nl">
+</span>                          <span class="py-src-variable">gtk</span><span class="py-src-op">.</span><span class="py-src-variable">DIALOG_MODAL</span> <span class="py-src-op">|</span> <span class="py-src-variable">gtk</span><span class="py-src-op">.</span><span class="py-src-variable">DIALOG_DESTROY_WITH_PARENT</span><span class="py-src-op">,</span><span class="py-src-nl">
+</span>                          <span class="py-src-variable">gtk</span><span class="py-src-op">.</span><span class="py-src-variable">MESSAGE_ERROR</span><span class="py-src-op">,</span> <span class="py-src-variable">gtk</span><span class="py-src-op">.</span><span class="py-src-variable">BUTTONS_CLOSE</span><span class="py-src-op">,</span><span class="py-src-nl">
+</span>                          <span class="py-src-string">&quot;Please connect before sending messages&quot;</span><span class="py-src-op">)</span><span class="py-src-newline">
+</span><span class="py-src-variable">error</span><span class="py-src-op">.</span><span class="py-src-variable">run</span><span class="py-src-op">(</span><span class="py-src-op">)</span><span class="py-src-newline">
+</span><span class="py-src-variable">error</span><span class="py-src-op">.</span><span class="py-src-variable">destroy</span><span class="py-src-op">(</span><span class="py-src-op">)</span><span class="py-src-newline">
+</span><span class="py-src-endmarker"></span></pre><p>
+This is the resulting dialog:
+</p><div class="image"><img src="errdlg.png" /></div></div><div class="footer"><span id="ptitle">PyGtk and PyGnome Programming</span><a href="http://www.travishartwell.net">http://www.travishartwell.net</a></div></body></html>

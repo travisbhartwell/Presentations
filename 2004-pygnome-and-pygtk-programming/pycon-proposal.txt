@@ -1,0 +1,79 @@
+GTK and Gnome Programming with Python
+
+Travis B. Hartwell
+nafai@travishartwell.net
+
+Time Slot: One Hour Presentation
+
+Author Background:
+
+I have recently finished my Bachelor's degree in Computer Science at
+Utah State University and now work as a software developer for Roxor
+Games of Austin, Texas.  I have been working with the Twisted project
+since near its beginning.  At last year's PyCon, I gave a one-hour
+tutorial last year on using Twisted Web.  I also have given five or
+six one hour presentations at my local Linux user group on various
+topics and have taught several two-hour long workshops on Emacs and
+Python.  I have been doing development with Python since 1999 and have
+used it for all of my professional development activities since 2001.
+As a result of a hacking session at PyCon 2003, I started my own free
+software project -- Informant (http://www.travishartwell.net/projects/informant/),
+a set of utilities designed to alert users of events on their system
+with the alert mechanism being an Gnome application.
+
+Presentation Summary:
+
+GTK+, or the Gimp Tool Kit, is a popular graphical toolkit that
+supports many platforms, including Linux, Windows, and OS X.  PyGTK
+provides support for this wonderful library from Python.  Python and
+PyGTK make an excellent pair for development of cross platform GUI
+applications.  In fact, there are many applications that utilized
+PyGTK, including the Anaconda installer developed by Red Hat and the
+Red Carpet software management system from Ximian.
+
+There are two API incompatible versions of GTK in use today, 1.2 and
+2.0.  While my presentation will focus on GTK 2.0, many of the
+concepts can be applied to GTK 1.2 if necessary.
+
+Gnome is a desktop environment and application development framework
+for Linux and other Unix-like operating systems that utilizes GTK.
+The Gnome Python bindings are available for development of anything from
+panel applets to full-blown Gnome applications.  Popular software
+packages such as the desktop news aggregation tool Straw, the
+framework and set of desktop applets gDesklets, and a panel applet
+Gnome Blog that allows you to write blog entries.  My own Gnome
+application Informant utilized PyGTK and Gnome Python.
+
+I plan on giving a tutorial type of presentation.  Basic concepts in
+GTK programming will be only briefly covered, as focus will be placed
+on utilizing GTK from Python.  Brief discussion of naming differences
+between PyGTK and the C bindings will be covered, so that those
+familiar with C can translate examples given in C elsewhere to PyGTK.
+Many working examples will be given, starting with the infamous "Hello
+World" example.  GTK basics will be demonstrated by adding additional
+features such as buttons and callbacks for those buttons.  
+
+Glade, a user interface builder for GTK and Gnome, will be
+demonstrated.  Glade generates an XML file describing the user
+interface.  This file can then be loaded in your Python program, thus
+minimizing the amount of code to write setting up the interface.  You
+can also use Glade to create Gnome specific widgets and application
+parts.  
+
+Most of the necessary functionality to write applications for the
+Gnome environment is available via the Gnome Python bindings.  Brief
+examples showing access of various Gnome technologies such as Bonobo,
+the Gnome Canvas, gconf, and gnome-vfs will be included. In addition
+to those technologies, the actual ease of developing panel applets
+will be demonstrated.
+
+Finally, I will show as a case study my own Gnome application,
+Informant.  Included here are the few steps needed to integrate the
+Twisted framework with GTK and Gnome.  I believe the combination of
+Python, GTK, Gnome Python, and Twisted make it extremely easy to write
+5graphical network applications.
+
+As always, links to many good resources and applications written
+utilizing these libraries will be provided to help those attending.
+
+
