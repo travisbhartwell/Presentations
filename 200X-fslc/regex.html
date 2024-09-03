@@ -1,0 +1,97 @@
+<html>
+<head>
+<title>An Introduction to Regular Expressions</title>
+</head>
+<body>
+<h1>An Introduction to Regular Expressions</h1>
+<div class="author">Travis B. Hartwell &lt;nafai@twistedmatrix.com&gt;</div>
+
+<h2>Regular Expressions: A Definition</h2>
+<ul>
+  
+<li>I think the standard <a
+  href="http://www.nightflight.com/foldoc-bin/foldoc.cgi?query=regular+expression&action=Search">dictionary definitions</a> of a regular expression are too specific to any one application or syntax.</li>
+<li>Therefore, I define them as simply: <em>any formal syntax for
+  describing textual patterns</em></li> 
+</ul>
+
+<h2>Even More Formally</h2>
+<ul>
+<li>Primative forms of regular expressions were invented by Stephen
+  Kleene, a mathematician, in the 1950's.</li>
+<li>Regular expressions are a means of describing a language that
+    can also be described by a finite state machine or context free
+    grammars.</li>
+<li>Take Computer Science 5050 or Computer Science 5300 to learn more
+    about these formalisms.</li>
+</ul>
+
+<h2>Practical Matters</h2>
+
+Luckily, we don't have to understand the formal and theoretical basis
+to effectively use regular expressions.  Regular expressions are used
+for:
+
+<ul>
+<li>Basic filename matching in the shell</li>
+<li>Text matching in a wide range of utilities</li>
+<li>Text replacing or substitution</li>
+<li>Even more advanced stuff...</li>
+</ul>
+
+<h2>Syntax</h2>
+There are a few main syntax styles used for regular expressions, most
+related but each slightly different:
+<ul>
+<li><em>Formal</em> as used in Computer Science texts</li>
+<li><em>POSIX</em> style</li>
+<li><em>Perl compatible</em></li>
+<li><em>Emacs</em> style</li>
+<li>Others?</li>
+</ul>
+
+<h2>Our focus</h2>
+Because the basic concepts are the same and the most common types are
+similar, we will start with the commonality and then show the more
+advanced usage noting the differences.  Because they are the most
+common, special emphasis will be placed upon <em>POSIX</em> style and
+<em>Perl compatible</em> regular expression syntaxes.
+
+<h2>Simplest types: filename globbing</h2>
+<ul>
+  <li>
+  ? - Match any single character
+   <p> Example:</p>
+    <p>ls my?oc</p>
+    <p>Matches <q>mydoc</q>, <q>mytoc</q>, <q>my1oc</q>, etc.</p>
+  </li>
+
+  <li>
+  * - Match 0 or more characters
+     <p>Example:</p>
+    <p><q>li my*</q></p>
+    <p>Matches <q>mydoc</q>, <q>my</q>, <q>mynameistravis</q></p>
+  </li>
+</ul>
+
+<h2>More complex, Perl Style</h2>
+<ul>
+  <li>any <q><em>regular</em></q> character - match itself</li>
+  <li>. - matches any single character</li>
+  <li>^ - match starts at the beginning of the line</li>
+  <li>$ - match at the end of the line</li>
+  <li>+ - matches one or more of the previous RE</li>
+  <li>? - matches zero or one of the previous RE</li>
+</ul>  
+
+<h2>Other stuff</h2>
+<ul>
+<li>Basic concepts: closure, concatenation, or, and grouping</li>
+<li>Filename globbing</li>
+<li>Simple examples</li>
+<li>Character classes</li>
+<li>Grouping</li>
+<li>...what else</li>
+</ul>
+
+</body> </html>

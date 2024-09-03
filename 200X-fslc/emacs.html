@@ -1,0 +1,129 @@
+<html>
+<head>
+<title>The Emacs Text Editor</title>
+</head>
+<body>
+<h1>The Emacs text editor</h1>
+<div class="author">Travis B. Hartwell &lt;nafai@twistedmatrix.com&gt;</div>
+<h2>What is it?</h2>
+<ul>
+  <li>A text editor?</li>
+  <li>An OS?</li> 
+  <li>A religion?</li>
+  <li>I think the answer is probably "Yes!" to all three.</li>
+</ul>
+
+<h2>Okay, the serious answer</h2>
+<ul>
+  <li> To quote the Emacs Manual:</li>
+
+  <li>Emacs is the </li>
+  <ul>
+  <li>extensible,  </li>
+  <li>customizable,</li>
+  <li>self-documenting real-time display editor.</li>
+  </ul>
+  <li>Emacs is written in, customized with, and extended with the Emacs Lisp Language</li>
+</ul>
+<h2>History of Emacs</h2>
+<ul>
+  <li>1974: Began as a set of macros for the TECO editor on the ITS OS.</li>
+  <li>1976: Richard Stallman organized all of these macros ("Editor MACroS") into a single command set.</li>
+  <li>1978: Bernard Greenberg wrote Multics Emacs, using a Lisp as
+  an extension language.  That proved to make Emacs more extensible
+  than ever before, so all subsequent Emacsen used Lisp.</li>
+  <li>1981: James Gosling wrote the first Unix Emacs.</li>
+</ul>
+<h2>History of Emacs (cont.)</h2>
+<ul>
+  <li>1984: Richard Stallman began writing Gnu Emacs, now the defacto
+  standard Emacs</li>
+  <li>1991: Jamie Zawinski and others at Lucid developed Lucid Emacs,
+  based on an early version of Gnu Emacs 19.  Due to various
+  complications, the code bases were never merged.  This later became XEmacs.</li>
+</ul>
+<h2> Let's get started </h2>
+<ul>
+  <li>I use Gnu Emacs, but most, if not all, of what I cover tonight
+  works in XEmacs as well.</li>
+  <li>Emacs can be run either in the console or in X:</li>
+     <ul>
+       <li>emacs -nw</li>
+       <li>emacs</li>
+     </ul>
+  <li>Screen layout</li>
+     <ul>
+       <li>Menu bar</li>
+       <li>tool bar</li>
+       <li>scroll bar</li>
+       <li>mode line</li>
+     </ul>
+</ul>
+<h2> Basic concepts </h2>
+<ul>
+  <li>The basic editing unit of Emacs is a buffer.</li>
+  <li>Each buffer has associated with it a major mode and possibly
+  several minor modes.</li>
+  <li>A <b>major mode</b> is a configuration for editing certain types
+  of files, including highlighting, keybindings, formating, etc.</li>
+  <li>A <b>minor mode</b> is just added functionality for a buffer.</li>
+</ul>
+<h2> Basic keystrokes </h2>
+<ul>
+  <li> You must absolutely know these keys to get started: </li>
+  <ul>
+    <li> C-x C-f -- Open a file </li>
+    <li> C-x C-s -- Save a file </li>
+    <li> C-x C-c -- Quit Emacs </li>
+    <li> C-h t -- The Emacs Interactive Tutorial </li>
+    <li> M-x -- Run an Emacs command by name </li>
+  </ul>
+  <li>Guide to key mnemonics</li>
+  <ul>
+    <li> C -- Control </li>
+    <li> M -- Meta, which is either alt, esc, or sometimes the Windows key, depending on your configuration </li>
+    <li> A -- Alt </li>
+  </ul>
+</ul>
+<h2>Basic Movement Commands</h2>
+<ul>
+  <li>C-a, C-e -- Go to the beginning and end of line</li>
+  <li>M-v, C-v -- Page up, Page Down</li>
+  <li>C-f, M-f -- Forward character, forward word</li>
+  <li>C-b, M-b -- Backward character, backward word</li>
+  <li>C-p, C-n -- Up line, down line</li>
+  <li>ESC &lt;number&gt; -- repeat command number times</li>
+  <ul>
+    <li> Example: ESC 15 C-n -- Go down 15 lines </li>
+  </ul>
+</ul>
+<h2>Basic Editing commands</h2>
+<ul>
+  <li>C-d, M-d -- Kill character forward, kill word forward</li>
+  <li>C-k -- Kill from point to remainder of line</li>
+  <li>C-y -- Yank the top of the kill ring</li>
+  <li>C-SPC -- Mark</li>
+  <li>C-w, M-w -- Cut marked region, copy marked region</li>
+  <li>M-% -- Query replace</li>  
+</ul>
+<h2>Customing Emacs</h2>
+<ul>
+  <li>By hand customization is done by editing ~/.emacs in Gnu Emacs
+  or ~/.xemacs/init.el</li>
+  <li>For help in customization, do M-x customize-browse.</li>
+</ul>
+<h2>Fun Stuff</h2>
+<ul>
+  <li>M-x dunnet ; A Text adventure game</li>
+  <li>M-x tetris </li>
+  <li>M-x doctor ; For those times you need a little extra help</li>
+</ul>
+<h2>Resources</h2>
+<ul>
+  <li><a href="http://www.refcards.com/about/emacs.html">Emacs Quick
+  Reference Card</a></li>
+  <li><a href="http://www.emacswiki.org/">The Emacs Wiki</a></li>
+  <li>#emacs on irc.freenode.net</li>
+  <li>Usenet: comp.emacs</li>
+</ul>
+</body> </html>

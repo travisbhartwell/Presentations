@@ -4,7 +4,7 @@ This talk was about using the Python bindings for [gtk](https://www.gtk.org) and
 
 I gave this talk at two different conferences in 2004:
 - At PyCon DC 2004.
-- At Utah State University's Free Software and Linux Club (FSLC) [Free Software and Linux Forum](https://web.archive.org/web/20040624070545/http://www.fslc.usu.edu/forum2004/)
+- At Utah State University's Free Software and Linux Club (FSLC) [Free Software and Linux Forum](https://web.archive.org/web/20040624070545/http://www.fslc.usu.edu/forum2004/).
 
 ## Proposal
 
