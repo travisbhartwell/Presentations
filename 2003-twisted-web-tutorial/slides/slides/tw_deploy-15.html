@@ -1,0 +1,18 @@
+<html>
+<head>
+<title>A Twisted Web Tutorial</title>
+<link rel="stylesheet" type="text/css" href="main.css" />
+</head>
+<body>
+<a accesskey="P" href="tw_deploy-14.html">Prev</a> | <a href="tw_deploy-00.html">Index</a> | <a acesskey="N" href="tw_deploy-16.html">Next</a><h2>Resource call examples:</h2><ul>
+<li>/foo/bar/baz gets converted to:</li>
+
+<ul><li><pre>
+site.getChild('foo', request).getChild('bar', request).getChild('baz', request).render(request)</pre></li>
+</ul>
+<li>/foo/bar/baz/ gets converted to:</li>
+
+<ul><li><pre>
+site.getChild('foo', request).getChild('bar', request).getChild('baz', request).getChild('', request).render(request)</pre></li>
+</ul></ul>
+<br /><div class="footer"><hr />A Twisted Web Tutorial</div></body></html>

@@ -1,0 +1,17 @@
+<html>
+<head>
+<title>A Twisted Web Tutorial</title>
+<link rel="stylesheet" type="text/css" href="main.css" />
+</head>
+<body>
+<a accesskey="P" href="tw_deploy-19.html">Prev</a> | <a href="tw_deploy-00.html">Index</a> | <a acesskey="N" href="tw_deploy-21.html">Next</a><h2>.rpy example</h2><ul>
+<pre>
+from twisted.web import resource
+
+class MyGreatResource(resource.Resource):
+    def render(self, request):
+        return "&lt;html&gt;foo&lt;/html&gt;"
+
+resource = MyGreatResource()
+</pre></ul>
+<br /><div class="footer"><hr />A Twisted Web Tutorial</div></body></html>

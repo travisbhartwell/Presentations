@@ -7,7 +7,8 @@
 | 2016-07-16 | Spacemacs: The Best of Both the Emacs and Vim Worlds. | [Open West Conference 2016](https://web.archive.org/web/20190420031712/https://openwest.org/past/2016/index.html)                                                           | [link](2016-07-16_open-west-spacemacs/)    |
 | 2011-04-14 | Web Automation with Python                            | [Utah Python User's Group](https://utahpython.org/)                                                                                                                         | [link](2011-04-14_utpy-web-automation/)    |
 | 2004       | PyGtk and PyGnome Programming                         | Utah State University Free Software And Linux Club [2004 FSLC Free Software and Linux Forum](https://web.archive.org/web/20040624070545/http://www.fslc.usu.edu/forum2004/) | [link](2004-pygnome-and-pygtk-programming) |
-| 2004       | PyGtk and PyGnome Programming | 2004 PyCon DC | [link](2004-pygnome-and-pygtk-programming) |
+| 2004       | PyGtk and PyGnome Programming                         | 2004 PyCon DC                                                                                                                                                               | [link](2004-pygnome-and-pygtk-programming) |
+| 2003       | Twisted Web: A Tutorial                               | 2003 PyCon DC                                                                                                                                                               | [link](2003-twisted-web-tutorial)          |
 
 
 ## Youtube Videos

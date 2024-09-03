@@ -1,0 +1,21 @@
+<html>
+<head>
+<title>A Twisted Web Tutorial</title>
+<link rel="stylesheet" type="text/css" href="main.css" />
+</head>
+<body>
+<a accesskey="P" href="tw_deploy-17.html">Prev</a> | <a href="tw_deploy-00.html">Index</a> | <a acesskey="N" href="tw_deploy-19.html">Next</a><h2>Custom Processor: More than One Evil Way to Do It</h2><ul>
+<li>A custom processor to handle Perl CGIs:</li>
+
+<pre>
+from twisted.web import static, twcgi
+
+class PerlScript(twcgi.FilteredScript):
+    filter = '/usr/bin/perl' # Points to the perl parser
+</pre>
+<li>An example of how to use:</li>
+
+<ul><li><pre>
+mktap web --path=/home/nafai/public_html --processor=.pl=PerlScript.PerlScript</pre></li>
+</ul></ul>
+<br /><div class="footer"><hr />A Twisted Web Tutorial</div></body></html>
