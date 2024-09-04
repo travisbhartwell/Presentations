@@ -1,0 +1,74 @@
+\documentclass[ps,colorBG,contemporain]{prosper}
+\title{An Introduction to Regular Expressions}
+\begin{document}
+\author{Travis B. Hartwell $<$nafai@twistedmatrix.com$>$}\begin{slide}{Regular Expressions: A Definition}\begin{itemize}
+\item I think the standard dictionary definitions\footnote{http://www.nightflight.com/foldoc-bin/foldoc.cgi?query=regular+expression\&action=Search} of a regular expression are too specific to any one application or syntax.
+\item Therefore, I define them as simply: \begin{em}any formal syntax for   describing textual patterns\end{em}
+\end{itemize}
+\end{slide}
+
+\begin{slide}{Even More Formally}\begin{itemize}
+\item Primative forms of regular expressions were invented by Stephen   Kleene, a mathematician, in the 1950's.
+\item Regular expressions are a means of describing a language that     can also be described by a finite state machine or context free     grammars.
+\item Take Computer Science 5050 or Computer Science 5300 to learn more     about these formalisms.
+\end{itemize}
+\end{slide}
+
+\begin{slide}{Practical Matters}  Luckily, we don't have to understand the formal and theoretical basis to effectively use regular expressions.  Regular expressions are used for:  \begin{itemize}
+\item Basic filename matching in the shell
+\item Text matching in a wide range of utilities
+\item Text replacing or substitution
+\item Even more advanced stuff...
+\end{itemize}
+\end{slide}
+
+\begin{slide}{Syntax} There are a few main syntax styles used for regular expressions, most related but each slightly different: \begin{itemize}
+\item \begin{em}Formal\end{em} as used in Computer Science texts
+\item \begin{em}POSIX\end{em} style
+\item \begin{em}Perl compatible\end{em}
+\item \begin{em}Emacs\end{em} style
+\item Others?
+\end{itemize}
+\end{slide}
+
+\begin{slide}{Our focus} Because the basic concepts are the same and the most common types are similar, we will start with the commonality and then show the more advanced usage noting the differences.  Because they are the most common, special emphasis will be placed upon \begin{em}POSIX\end{em} style and \begin{em}Perl compatible\end{em} regular expression syntaxes.  \end{slide}
+
+\begin{slide}{Simplest types: filename globbing}\begin{itemize}
+\item    ? - Match any single character    
+
+ Example:
+
+ls my?oc
+
+Matches ``mydoc'', ``mytoc'', ``my1oc'', etc.
+\item    * - Match 0 or more characters      
+
+Example:
+
+``li my*''
+
+Matches ``mydoc'', ``my'', ``mynameistravis''
+\end{itemize}
+\end{slide}
+
+\begin{slide}{More complex, Perl Style}\begin{itemize}
+\item any ``\begin{em}regular\end{em}'' character - match itself
+\item . - matches any single character
+\item \verb#^# - match starts at the beginning of the line
+\item \$ - match at the end of the line
+\item + - matches one or more of the previous RE
+\item ? - matches zero or one of the previous RE
+\end{itemize}
+\end{slide}
+
+\begin{slide}{Other stuff}\begin{itemize}
+\item Basic concepts: closure, concatenation, or, and grouping
+\item Filename globbing
+\item Simple examples
+\item Character classes
+\item Grouping
+\item ...what else
+\end{itemize}
+\end{slide}
+
+\end{document}
