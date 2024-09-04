@@ -1,6 +1,6 @@
 # Spacemacs: The Best of Both the Emacs and Vim Worlds
 
-Talk given at the [Open West Conference 2016](https://web.archive.org/web/20190420031712/https://openwest.org/past/2016/index.html) on July 16, 2016 as an introduction to [Spacemacs](https://spacemacs.org).
+Talk given at the [Open West Conference 2016](https://web.archive.org/web/20190420031712/https://openwest.org/past/2016/index.html) on July 16, 2016 as an introduction to [Spacemacs](https://github.com/syl20bnr/spacemacs).
 
 ## Meta
 

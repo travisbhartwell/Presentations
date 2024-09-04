@@ -6,7 +6,7 @@ Talk was given at PyCon DC 2003, about using [Twisted Web](https://docs.twisted.
 
 The slides can be found [here](./slides), with the source [here](./slides/tw-deploy), and rendered slides [here](./slides/slides).
 
-They were created using the [slides.py](slides.py) CGI renderer included here.
+They were created using the [slides.py](./slides/slides.py) CGI renderer included here.
 
 The original slide source was copied from the Twisted project where I originally committed them, most recently found [at this commit](https://github.com/twisted/twisted/tree/915c248d0fbd53253b0a84368236d3b293de7396/docs/historic/2003/pycon/tw-deploy).
 
