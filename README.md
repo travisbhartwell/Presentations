@@ -26,6 +26,14 @@ I have produced a few technical Youtube videos on my [Youtube Channel](https://w
 | 2011-05-11 | Emacs Daemon Mode and Editing Remote files in your local Emacs instance                | [link](https://www.youtube.com/watch?v=5OktfMn8PAE) |
 | 2008-11-08 | XMonad, Gnome, and gtkmenu screencast                                                  | [link](https://www.youtube.com/watch?v=jIpu4hQgM1E) |
 
+## Podcast Appearances
+
+I have been a guest on the following tech or tech-adjacent podcasts.
+
+| Date       | Description            | Podcast                                               | Episode Link                                                   |
+|------------|------------------------|-------------------------------------------------------|----------------------------------------------------------------|
+| 2016-11-30 | Living with Disability | [Greater than Code](https://www.greaterthancode.com/) | [link](https://www.greaterthancode.com/living-with-disability) |
+
 ## Technical Blog Entries
 
 I have written a few technical blog entries over the years. The following are links on [Archive.org](https://archive.org) to those entries.
