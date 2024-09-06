@@ -21,7 +21,7 @@ I have produced a few technical Youtube videos on my [Youtube Channel](https://w
 | Date       | Description                                                                            | Link                                                |
 |------------|----------------------------------------------------------------------------------------|-----------------------------------------------------|
 | 2015-07-29 | How to Make a Pull Request for Spacemacs                                               | [link](https://www.youtube.com/watch?v=pWzJ6IGXwmk) |
-| 2015-07-20 | ANNOUNCE: nix-emacs v0.0.1 -- NIxOS options searching and completion support for Emacs | [link](https://www.youtube.com/watch?v=4FZl_a7YQIA) |
+| 2015-07-20 | ANNOUNCE: nix-emacs v0.0.1 -- NixOS options searching and completion support for Emacs | [link](https://www.youtube.com/watch?v=4FZl_a7YQIA) |
 | 2015-07-02 | Introduction to Spacemacs: Installation                                                | [link](https://www.youtube.com/watch?v=xFp9Jahs8Ng) |
 | 2011-05-11 | Emacs Daemon Mode and Editing Remote files in your local Emacs instance                | [link](https://www.youtube.com/watch?v=5OktfMn8PAE) |
 | 2008-11-08 | XMonad, Gnome, and gtkmenu screencast                                                  | [link](https://www.youtube.com/watch?v=jIpu4hQgM1E) |
